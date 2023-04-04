@@ -1,15 +1,15 @@
-import express from 'express';
+const express = require('express');
 
 const app = express();
-const port = process.env.PORT || 3030;
+const port = process.env.PORT || 4545;
+
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 app.get('/', (req, res) => {
-  console.log('GET request received');
   res.download('./release/app_update.bin');
 });
 
 app.post('/', (req, res) => {
-  console.log('POST request received');
   res.download('./release/app_update.bin');
 });
 
